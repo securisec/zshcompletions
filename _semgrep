@@ -1,0 +1,126 @@
+#compdef semgrep
+
+_semgrep_arglist=(
+    {'(--autofix)-a','(-a)--autofix'}'[Apply autofix patches.]' 
+    --allow-untrusted-validators'[Allows running rules with validators from origins other thansemgrep.dev.]'
+    '--baseline-commit=[Only show results that a run if not currentl changes, or given baseline hash doesnt exist.]' 
+    '--beta-testing-secrets-enabled[Please use --secrets instead of --beta-testing-secrets. Requires Semgrep Secrets...]'
+    '--dump-command-for-core[<internal, do not use>]'
+    '--dataflow-traces[Explain how non-local values reach the location of a finding (only affects text ...]'
+    '--debug[All of --verbose, but with additional debugging information.]'
+    '--develop[Living on the edge.]'
+    '--diff-depth[The depth of the Pro (interfile) differential scan, the number of steps (both in...]'
+    '--disable-nosem[negates --enable-nosem]'
+    '--disable-version-check[negates --enable-version-check]'
+    '--dryrun[If --dryrun, does not write autofixes to a file. This will print the changes to ...]'
+    '--dump-ast[If --dump-ast, shows AST of the input file or passed expression and then exit (c...]'
+    '--dump-engine-path[<internal, do not use>]'
+    '--pattern[Code search pattern. See https://semgrep.dev/docs/writing-rules/pattern-syntax f...]'
+    '--emacs[Output results in Emacs single-line format.]'
+    '--enable-nosem[Enables nosem. Findings will not be reported on lines containing a nosem comment...]'
+    '--enable-version-check[Checks Semgrep servers to see if the latest version is run; disabling this may r...]'
+    '--error[Exit 1 if there are findings. Useful for CI and scripts.]'
+    '--exclude[Skip any file or directory whose path that matches PATTERN. --exclude=*.py will ...]'
+    '--exclude-rule[Skip any rule with the given id. Can add multiple times.]'
+    '--experimental[Enable experimental features.]'
+    '--config[YAML configuration file, directory of YAML files ending in .yml|.yaml, URL of a ...]:select config:_files'
+    '--files-with-matches[Output only the names of files containing matches]'
+    '--force-color[Always include ANSI color in the output, even if not writing to a TTY; defaults ...]'
+    '--gitlab-sast[Output results in GitLab SAST format.]'
+    '--gitlab-secrets[Output results in GitLab Secrets format.]'
+    '--historical-secrets[Scans git history using Secrets rules.]'
+    '--include[Specify files or directories that should be scanned by semgrep, excluding other ...]:select include:_files'
+    '--incremental-output[Output results incrementally.]'
+    '--interfile-timeout[Maximum time to spend on interfile analysis. If set to 0 will not have time limi...]'
+    '--jobs[Number of subprocesses to use to run checks in parallel. Defaults to the number ...]'
+    '--json[Output results in Semgreps JSON format.]'
+    '--junit-xml[Output results in JUnit XML format.]'
+    '--lang[Parse pattern and all files in specified language. Must be used with -e/--patter...]'
+    '--legacy[Prefer old (legacy) behavior.]'
+    '--matching-explanations[Add debugging information in the JSON output to trace how different parts of a r...]'
+    '--max-chars-per-line[Maximum number of characters to show per line.]'
+    '--max-lines-per-finding[Maximum number of lines of code that will be shown for each match before trimmin...]'
+    '--max-memory[Maximum system memory in MiB to use during the interfile pre-processing phase, o...]'
+    '--max-target-bytes[Maximum size for a file to be scanned by Semgrep, e.g 1.5MB. Any input program l...]'
+    '--metrics[Configures how usage metrics are sent to the Semgrep server. If auto, metrics ar...]'
+    '--no-autofix[negates -a/--autofix]'
+    '--no-dryrun[negates --dryrun]'
+    '--no-error[negates --error]'
+    '--no-force-color[negates --force-color]'
+    '--no-git-ignore[negates --use-git-ignore]'
+    '--no-rewrite-rule-ids[negates --rewrite-rule-ids]'
+    '--no-secrets-validation[Disables secret validation.]'
+    '--no-strict[negates --strict]'
+    '--no-test-ignore-todo[negates --test-ignore-todo]'
+    '--no-time[negates --time]'
+    '--no-trace[negates --trace]'
+    '--output[Save search results to a file or post to URL. Default is to print to stdout.]'
+    '--optimizations[Turn on/off optimizations. Default = all. Use none to turn all optimizations off...]'
+    '--oss-only[Run using only OSS features, even if the Semgrep Pro toggle is on.]'
+    '--pro[Inter-file analysis and Pro languages (currently Apex and Elixir). Requires Semg...]'
+    '--pro-intrafile[Intra-file inter-procedural taint analysis. Implies --pro-languages. Requires Se...]'
+    '--pro-languages[Enable Pro languages (currently Apex and Elixir). Requires Semgrep Pro Engine. S...]'
+    '--profile[<undocumented>]'
+    '--project-root[The project root for gitignore and semgrepignore purposes is detected automatica...]'
+    '--quiet[Only output findings.]'
+    '--remote[Remote will quickly checkout and scan a remote git repository of the format "htt...]'
+    '--replacement[An autofix expression that will be applied to any matches found with --pattern. ...]'
+    '--rewrite-rule-ids[Rewrite rule ids when they appear in nested sub-directories (Rule foo in test/ru...]'
+    '--sarif[Output results in SARIF format.]'
+    '--scan-unknown-extensions[If true, target files specified directly on the command line will bypass normal ...]'
+    '--severity[Report findings only from rules matching the supplied severity level. By default...]'
+    '--show-supported-languages[Print a list of languages that are currently supported by Semgrep.]'
+    '--skip-unknown-extensions[negates --scan-unknown-extensions]'
+    '--strict[Return a nonzero exit code when WARN level errors are encountered. Fails early i...]'
+    '--test[Run test suite.]'
+    '--test-ignore-todo[If --test-ignore-todo, ignores rules marked as #todoruleid: in test files.]'
+    '--text[Output results in text format.]'
+    '--time[Include a timing summary with the results. If output format is json, provides ti...]'
+    '--timeout[Maximum time to spend running a rule on a single file in seconds. If set to 0 wi...]'
+    '--timeout-threshold[Maximum number of rules that can time out on a file before the file is skipped. ...]'
+    '--trace[Upload a trace of the scan to our endpoint (rule, target).]'
+    '--use-git-ignore[Skip files ignored by git. Scanning starts from the root folder specified on the...]'
+    '--verbose[Show more details about what rules are running, which files failed to parse, etc...]'
+    '--validate[Validate configuration file(s). This will check YAML files for errors and run p/...]'
+    '--version[Show the version and exit.]'
+    '--vim[Output results in vim single-line format.]'
+)
+
+# _config=(
+#     'auto[auto]'
+#     '~/dev/ctf_semgrep/[Custom rules]'
+#     '~/dev/ctf_semgrep/taint/[Taint rules]'
+# )
+
+_semgrep() {
+	_arguments $_semgrep_arglist
+	case "$state" in
+		# config)
+		# 	_values 'config' $_config
+		# 	;;
+	# 	attack_mode)
+	# 		_values 'attack mode' $_attack_modes
+	# 		;;
+	# 	outfile_format)
+	# 		_values 'outfile_format' $_outfile_formats
+	# 		;;
+	# 	debug_mode)
+	# 		_values 'debug_mode' $_rule_debugging_modes
+	# 		;;
+	# 	device_type)
+	# 		_values -s ',' 'device_type' $_device_types
+	# 		;;
+	# 	workload_profile)
+	# 		_values 'workload profile' $_workload_profiles
+	# 		;;
+	# 	charset)
+	# 		_message -r $_charsets
+	# 		;;
+	# 	client_feature)
+	# 		_values 'client_feature' $_brain_client_features
+	# 		;;
+		# *)
+		# 	_files
+		# 	;;
+	esac
+}
